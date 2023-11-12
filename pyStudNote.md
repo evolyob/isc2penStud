@@ -1,3 +1,4 @@
+define string
 ```py
 price_str = input("輸入價格")
 price = float(price_str)
@@ -11,12 +12,28 @@ print = (price)
 %s   // srting 字串
 name = "uke"
 print("myNameIs %s, thankYou" % name)
-%d   // int    整數 %06d 只顯示六位數 不足補零
+--> myNameIs uke thankYou
+
+%d   // int    整數 %06d 只顯示最少六位數 不足補零
+orderNo = 1
 ptint("myOrderNoIs %06d" % orderNo)
+--> myOrderNoIs 000001
+
 %f   // float  浮點 %.2f 小數位只顯示兩位
-print("price %.2f dollar, buy %.2f, pay %.2f dollar" %(price, buy, pay))
+price = 4
+buy = 5
+pay = price * buy
+print("price %.2f dollar, buy %.2f sets, pay %.2f dollars" %(price, buy, pay))
+--> price 4.00 dollar  buy 5.00 sets pay 20.00 dollars
+
 %%   // print  輸出
-print()
+scale = 0.25
+print("數據佔比 %.2f%%" % (scale * 100))
+--> 數據佔比 25.00%
+```
+name string
+```py
+
 
 
 ```
