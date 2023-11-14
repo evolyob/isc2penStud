@@ -31,9 +31,14 @@ scale = 0.25
 print("數據佔比 %.2f%%" % (scale * 100))
 --> 數據佔比 25.00%
 ```
-name string
+ifelse
 ```py
-
+==   兩邊相等，   ture
+!=   兩邊不相等   ture
+>    左大於右，   ture
+<    左小於右，   ture
+>=   左大於等於右  ture
+<=   左小於等於右  ture
 
 
 ```
