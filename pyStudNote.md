@@ -40,5 +40,11 @@ ifelse
 >=   左大於等於右  ture
 <=   左小於等於右  ture
 
+age = int(input("howOldAreYou"))
+if age >= 18:
+    print("plsEntry")  
+else:
+    print("seeYouNextTime")
+    
 
 ```
