@@ -42,6 +42,7 @@ ifelse
 
 age = int(input("howOldAreYou"))
 if age >= 18:
+#if age >= 18 and age <= 80:
     print("plsEntry")  
 else:
     print("seeYouNextTime")
