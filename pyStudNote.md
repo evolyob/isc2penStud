@@ -42,10 +42,26 @@ ifelse
 
 age = int(input("howOldAreYou"))
 if age >= 18:
-#if age >= 18 and age <= 80:
-    print("plsEntry")  
+#if age >= 18 and age <= 30:
+    print("plsEntry")
+#elif age >= 30 and age <= 40:
+#    print("plsPayFrist")
+#elif age >= 40 and age <= 70: 
+#    print("plsCallYouDoctor")
 else:
     print("seeYouNextTime")
-    
+*** 滿足其一個就成立 ***  
+```
 
+```py
+has_ticket = True
+knife_length = 30
+if has_ticket:
+    print("pass,LetUsChk")
+    if :
+        ....
+    else:
+        ....
+else:
+    print("plsBuyTicket")
 ```
