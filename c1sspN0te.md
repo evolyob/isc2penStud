@@ -3,8 +3,8 @@
 特定風險事件的預期次數(ARO, Annualized Rate of Occurrence)：
 生特定風險事件可能造成的損失(SLE, Single Loss Expectancy)
 年度損失預期(ALE, Annual Loss Expectancy)：
-ALE=AV*EF　（平均發生*衝擊影響）
-SLE=ALE*ARO
+SLE=AV*EF　（平均發生*衝擊影響）
+ALE=SLE*ARO
 ARO : 過去10年伺服器共故障了5次
 SLE : 每次伺服器故障可能會損失$100
 ALE :　預期㇐年會損失的金額ALE = ARO * SLE 3) = 0.5 * $100 = $50
