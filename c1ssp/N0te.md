@@ -201,6 +201,8 @@ v. Level 5 > Optimizing：最佳化
 證標準
 
 ```
+favorite986141 gg James0296!
 ```py
-
+敏捷宣言
+敏捷裡面的scrum
 ```
