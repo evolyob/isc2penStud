@@ -1,4 +1,9 @@
 ```py
+smurf attack是icmp ddos
+fraggle是UDP ddos
+```
+
+```py
 定量分析
 特定風險事件的預期次數(ARO, Annualized Rate of Occurrence)：
 特定風險事件可能造成的損失(SLE, Single Loss Expectancy)
