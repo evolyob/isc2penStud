@@ -121,8 +121,9 @@ ch6密碼學和對稱密鑰
 替換密碼 substitution cipher 不同字符替換明文消息
 單次祕本vernam(密碼本本) 單次密文隨機生成，但拿到部分密碼本就會被破譯。
 運動密鑰密碼running key cipher或密碼書，密鑰跟本文一樣長在選自一本普通的書，雙方只需要按必要的數量用連續字符執行加解密。
-塊密碼block cipher
+塊密碼block cipher   位移密碼是塊密碼的一個例子
 流密碼stream cipher
+混淆confusion擴散diffusion
 -
 -
 -
