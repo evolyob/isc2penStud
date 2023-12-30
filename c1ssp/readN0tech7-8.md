@@ -64,18 +64,31 @@ PKI public key infrastructure 公鑰基礎設施
 -如果你自己websiteg設置信任一家CA，自動信任這家發的數字簽證
 
 註冊機構 RA registration authority 本身不直發簽證書，負責認證過程讓CA能遠程驗證用戶身份
--
--
--
--
--
--
--
--
--
--
--
--
+離線CA保護自己的根證書root certificate不被需要時斷網斷電，離線CA創建次級中間CA充當在線CA．
+-證書鏈，為了驗證證書．瀏覽器鮮豔正中間CA身份，沿著信任路徑追朔到已知根CA
+-自簽證書，內部系統配置後可信任CA單不對外遊覽器信任，節約獲取證書費用
+
+證書生命週期 註冊>驗證>註銷
+1.註冊enrollment 向CA證明自己的身份
+-CSR certificate signing request證書簽名申請提供自己的公鑰，CA創建一份X.509格式證書(身份識別和公鑰拷貝)
+-CA在證書上用CA私鑰寫上數位簽名並把簽了名的數位簽章副本給你
+-域驗證 domain Validation  CA只驗證證書主體對域名是否有控制權．
+-擴展驗證 extended Validation CA採取步驟驗證擁有人是不是合法企業
+2.驗證 用CA公鑰檢查CA在證書上數位簽章跟效期．CACA
+-必須比對證書註銷列表CRL certificate revocation list和在線證書狀態協議OCSP online certificate status protocol來確定這份證書未被註銷
+-需滿足要求 CA數位簽章真實、你信任這家CA、未被CRL收入、證書包含你信任的數據
+3.註銷 revoke
+-失信擁有者意外洩露私鑰、CA誤發證書、細節更改(主體名稱變化)、安全關聯變更(主體不再被CA雇用)
+三種驗證正數真實性和識別被註銷的證書
+-證書註銷列表CRL 各家發證機構維護(發簽註銷序號、註銷生效日期時間)，定期下載交叉比對
+-在線證書狀態協議OCSP 客戶端收到CA'sOCSP發送一個OCSP請求，伺服器把該證書有效無效未知狀態回復給客戶端
+-證書裝訂(效期24hrs) OCSP的擴展 接受簽名和時戳裝訂或附加在數位簽章上，web將證書跟OCSP裝訂一起發送給用戶
+
+證書格式
+DER|區分編碼規則|二 進 制|.der, .crt, .cer
+PEM|隱私增強郵件|ASCII文本|.pem, .crt
+PFX|個人信息交換|二 進 制|.pfx, .p12
+P7B|          |ASCII文本|.p7b
 -
 -
 -
