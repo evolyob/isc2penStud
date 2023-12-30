@@ -89,10 +89,26 @@ DER|區分編碼規則|二 進 制|.der, .crt, .cer
 PEM|隱私增強郵件|ASCII文本|.pem, .crt
 PFX|個人信息交換|二 進 制|.pfx, .p12
 P7B|          |ASCII文本|.p7b
+
+非對稱密鑰管理
+-算法的保密性確保密碼系統完整性關鍵、密鑰長度在要球跟性能、密鑰隨機生成、不允許別人訪問私鑰、輪換時限、可用備份或使用第三方幫保存備份
+-硬件安全模塊HSM hardware security module 人員不必直接接觸密鑰，提高密碼運算、流程加速
+-使範圍差異使用適合的設備、內置房篡改機制、雲服務IaaS提供HSM安全密鑰管理
+
+混合加密法 hybrid cryptography 對稱跟非對稱結合 常用於TLS
+
+可攜設備
+-可信平台模塊 TPM trusted platform module 設備主機板的一塊芯片，保存或管理全硬盤加密   FDE full device encrypt解決方案的密鑰
+-TPM 成功驗證用戶身份後提供密鑰訪問權，防止把硬盤拆下來插進另外設備訪問數據
+
+
+電子郵件
 -
 -
 -
 -
 -
+-
+
 -
 ```
