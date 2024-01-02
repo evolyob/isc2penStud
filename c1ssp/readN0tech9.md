@@ -47,16 +47,35 @@ ch.9 安全漏洞威脅對策
 
 基本輸出入系統 basic input/output system BIOS  被UEFI取代
 統一可擴展固件接口 unified extensible firmware interface UEFI 
--
--
--
--
--
--
--
--
--
--
+-啟動時間縮短、再bios支援滑鼠、獨立CPU具有網路支持、測量啟動、引導認證，向前向後兼容
+-更新UEFI、BIOS韌體叫做flashing，被放惡意代碼就做 phlashing(RCE)
+-引導認證boot attestion |阻止加載或安裝未得到批准簽章的操作，只能驅動程式和操作系統批准
+-測量啟動measured boot  |每筆透過TPM(可信平台模塊)進行哈希計算結果會被保存，就像個監視器紀錄所見事。
+
+基於客戶端的系統
+移動代碼(applet)轉移客戶端處理用戶請求、用本地生成數據不必透過遠程服務器、不會接收做輸入被提供小程序任何數據 保護安全跟隱私
+-濫用javaScript | 不可信來源的惡意JS代碼(XSS, XSRF/CSRF) -->即時更新、同源限制、HTML的header驗證
+本地緩存cookie 臨時網路下載文件儲存，短時間保留、縮小緩存、禁用預加載、手動擦除緩存
+
+基於服務器的系統 DoS
+數據流控制  數據再進程、設備、網路、通信信道最小延時、高效傳輸、確保不過載溢出(由router, SW控)
+負仔均衡器 基礎設施利用率、最小響應時間、最大吞吐
+
+對稱多處理   SMP symmertric multiprocessing  多個處理器共同處理一個工作
+非對稱多處理 AMP asymmertric multiprocessing  只執行特定操作任務，專有處理器
+大規模並行處理 MPP massive parallel processing 大任務分解分派結果組合返回請求方
+
+對等網絡P2p peer to peer (VoIP, BitTorrent)
+-沒有中央、即時服務。安全方案:集中控制、監督、管理、過濾、耗盡可用帶寬
+
+工業控制系統 ICS
+-PLC獨立方式控制單設備、DCS有限範圍連接多個PLC作集中控制管理監督、SCADA大規模物理範圍多個DCS跟各個PLC連接起來
+
+分布式系統 distributed system/分布式計算環境 DCE ||-同質成員、共同功能目標操作(對等式架構)
+-固有安全問題:組件之間關聯性 
+-未授權用戶訪問、冒充模仿欺詐、繞過或禁用安全控制、竊聽操作通信、身分認證授權不足、缺法監控審計日誌紀錄、無法追則
+
+p347
 -
 -
 -
