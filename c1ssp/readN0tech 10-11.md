@@ -217,7 +217,40 @@ DNP3分佈是網絡協議3 主要用電力水利OT行業，支持數據採集系
 ```
 無線網路 IEEE標準 802.11 低成本、遠程竊聽, Dos
 ```
-ad hoc點對點 可以在沒有集中控制權限下通信
+ad hoc點對點 可以在沒有集中控制權限下通信 支援WEP、WPA2、WPA3
+-基礎設施需要無線接入點(WAP)強制持行訪問限制，由WAP充當連接點到有線網路
+-擴展服務及標示符(ESSID)保持網路連界在該區域漫遊，無限NIC關聯WAP-->WAP
+-thin AP只處理無線電信號，控制器的WAP由中央控制管理的 thinAP
+-fatAP 獨立WAP可在本地掌控設備所有管理功能
+
+保護SSID
+-擴展服務及標示符(ESSID) 多個站點，使用WAP使用安全功能阻止不必要的訪問，但要更改原廠的SSID
+-基本服務及標誌符(BSSID) 基站是MAC
+-獨立服務及標制符(ISSID) wifi直連 ad hoc
+
+無線安全
+WAP : OSA(open system authentication)開放系統身分認證 明文傳輸內容
+WAP :SKA(shared key authentication)共享密鑰身分認證  通信前身分認證，有線等效保密可選紀錄 後來802.11增加WPA WPA2,3
+
+WEP 有線等效保密 使用預定共享RC4密鑰進行SKA身分驗證和加密，因為密鑰是靜態很容易被攻破
+WPA WiFi受保護訪問 取代WEP臨時版本，每個主機協商的唯一密鑰集，身分認證和加密(RC4)分離，安全不可靠
+-臨時密鑰完整性協議 TKIP 以被棄用
+WPA2 (IEEE802.11i)(AES-CCMP)(802.11i)
+-計數器模式和密碼分組連結消息認證碼協議(CCMP) 用於許多分組密碼
+-PSK 預共享密鑰 使用靜態固定密碼進行身分認證
+-ENT 企業模式 支持 AAA服務(RADIUS udp1812, TACACS+tcp49)進行身分驗證
+WPA3-ENT (AES192 CCMP) (802.11ac/wifi5)
+-SAE(simultaneous authentication of equal)對等同步身分認證，不再加密並通過連接發送密碼執行身分驗證
+-又稱蜻蜓密鑰交換 dragonfly key exchange 零知識證明過程本就是DH的衍伸物，使用預設密碼及客戶端和 AP的MAC來直行身分驗證和會話密鑰交換
+-
+-
+-
+-
+-
+-
+-
+-
+-
 -
 -
 -
@@ -225,6 +258,7 @@ ad hoc點對點 可以在沒有集中控制權限下通信
 -
 -
 
+-
 
 ```
 
