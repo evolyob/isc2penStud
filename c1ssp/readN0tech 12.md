@@ -9,14 +9,14 @@ PAP|密碼身份驗證協議|passwd authentication protocol
 CHAP|徵詢握手身份驗證協議|challenge handshake md5 不安全 被MS-CHAPv2更新算法 取代
 >以建立會話期間會週期重覆驗證遠程系統、確保用戶身份持續有效
 EAP|可擴產身份認證協議|extensible   支持可指定身份認證解決方案 MFA 安全通道、加密
-LEAP|lightweight|
-PEAP|protected|
-EAP-SIM|subscriber idenntity|
-EAP-FAST|flexible authentication via secure tunneling|
-EAP-MD5|MD5|
-EAP-POTP|protected OTP|
-EAP-TLS|TLS|
-EAP-TTLS|tunneled TLS|
+LEAP|lightweight| 輕量級cisco WPA TKIP的替代方案，802.11i/WPA被批准之前，解決TKIP缺陷、不使用
+PEAP|protected| 受保護的，在TLS隧道封裝EAP安全性、支持交叉驗證
+EAP-SIM|subscriber idenntity| sim卡識別 GSM移動設備永，該卡用戶的帳戶服務級別相關
+EAP-FAST|flexible authentication via secure tunneling| cisco取代LEAP、由於WAP2發展
+EAP-MD5|MD5| 最早EAP的方法，但已棄用
+EAP-POTP|protected OTP| MFA 令牌 、用於單向或交叉身份認證．
+EAP-TLS|TLS|開放的IETF,保護身份驗證的流量TLS協議、雙方都具有數字證書的交叉身份認證
+EAP-TTLS|tunneled TLS|EAP-TLS的擴展、進行端點驗證前創建類似VPN隧道，確保不用明文方式傳輸．
 -
 -
 -
