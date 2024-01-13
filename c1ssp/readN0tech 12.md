@@ -127,14 +127,20 @@ VPN工作處理
 >OpenVPN| 基於(TLS)提供簡易配置安全可靠的VPN選項、可使用共享密碼證書進行身份驗證
 >>許多支持家用或商業WAP用做VPN網關
 
->IPsec|
->>
->>
->>
+-IPsec| IPv4作為附加組建、用途在內外部或網路建立VPN鏈路指在IP網路工作提供身份認證和加密數據傳輸
+>>L2TP-->L2TP/IPSec,是一組協議包含 AH,ESP,HNAC,IPComp,IKE
+>AH|authentication header身份認證頭 消息完整性和不可否認、會話訪問控制、防止重放攻擊
+>ESP|encapsulatingSecurityPayload 封裝安全載荷 有效負載內容的保密性和完整性、支援連傳輸模式和隧道模式
+>>提供加密、有限身份認證、防治重放攻擊、通常使用AES加密、允許不使用AH建立自己的連結、定期重新身份認證、檢測響應灰化劫持
+>HMAC|hash-based 基於哈希消息身份認證碼  哈希校驗
+>IPComp|IP payloadCompression 加密前的壓縮工具、提升速率
+>IKE|互聯網密鑰交換 三元素, 
+>> OAKLEY(生成ECDHE密鑰交換協議類似DH), SKEME安全交換機制機制
+>> ISAKMP互聯網安全關聯和密鑰管理協議(管理OAKLEY和生成SKEME交換密鑰) 
 >>使用IPsec的EAP進行有效負載加密
 >>
 -VPN
--VPNVPN
+-VPN
 ```
 
 ```
