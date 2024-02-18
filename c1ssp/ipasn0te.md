@@ -22,15 +22,14 @@ RAID10：至少四顆，以兩對鏡像每一對鏡像中最多可壞一顆硬�
 |POP3|TCP 110 ||POP3S |995|
 |IMAP|TCP 143 ||IMAPS |993|
 
-
 |微軟網路芳鄰|UDP 137、138|TCP139、445|||
 |:--|:--|:--|:--|:--|
-|NTP|UDP 123||||
-|SNMP|UDP 161 162||||
-|SYSLOG：|UDP 514||||
+|SNMP|UDP 161 請求|UDP 162接收|||
+|DHCP|服務器端67|客戶端68|NTP|UDP 123|
+|SYSLOG：|UDP 514||NFS|TCP 2049|
 |SQLServer||TCP 1433|||
 |PPTP||TCP 1723|||
 |RADIUS|UDP 1812 1813||LDAP|TCP389|
 |RDP||TCP 3389|||
-||||||
+
 
