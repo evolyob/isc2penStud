@@ -35,6 +35,11 @@
 保護極其重要，不讓人看的。Ex. 可⼝可樂的配方 (保護期間可以最久/經濟間諜法案 EEA)
  DRM (Digital rights management ) 數位版權管理
 資料不小⼼洩漏，可以追到當事人的方法
+
+1. Verification(驗證)和Validation(確認) (V&V) 是⼯程過程。ISO 15288 中引入的技術流程
+2. Certification(認證)和Accreditation(認可) (C&A) 是 FIPS 200 中定義的正式保證流程。
+3. C&A 的概念現在在 NIST RMF 中稱為 A&A (Assessment & Authorization) 評鑑和授權
 ```
+
 
 
