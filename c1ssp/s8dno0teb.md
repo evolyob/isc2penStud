@@ -93,9 +93,45 @@ Gateway 閘道器：應用閘道器是作協定轉換，屬於ISO OSI第七層(�
 企業版用802.1X
 802.1X是由IEEE制定的關於用戶接入網絡的認證標準，全稱是「基於埠的網絡接入控制」
 ⽀持通過⾝份驗證訪問IEEE 802 媒體，包括以太網、令牌環和 802.11 無線 LAN。
+為想要連接到LAN或WLAN的裝置提供了一種認證機制
 它定義了EAP (可擴展⾝份驗證協議)的封裝。
 
 IP Sec 提供服務  訪問控制 (Access control)、完整性（數據完整性和真實性）、保密、防重放 (Anti-replay)
-
 ```
+|7|應用層|53,80/443,22,23,3389|Application Poison攻擊,DNS cache poisoning,流氓 DHCP,DDoS|FTP services|
+|:--|:--|:--|:--|:--|
+|6|呈現層|ASCII,UTF8,BASE64,gzip,compress,HTTPS,AES|Path Traversal攻擊,DDoS|ANSI|
+|5|會話層|PAP,RPC,NetBIOS|會話挾持>偷走Token|ANSI|
+|4|傳輸層|TCP,UDP|SYN Flooding,聖誕樹攻擊,,Froggle|Firewall|
+|3|網路層|IP,IGP,RIP(小型)、OSPF(中⼤型),ICMP|Teardrop,DDoS ,smurf,死亡之Ping,Fingerprinting|Router|
+|2|資料鏈結層|MAC,LLC|ARP Attacks,MAC Spoofing|Switch ,Bridge|
+|1|實體層|UTP,STP,fiber,cable|訊號衰減、干擾、竊聽、破壞 |HUB,Repeater|
+```
+TPM可用於實現廣泛的基於密碼學的安全保護機制。
+存儲和處理硬體⽀持或作業系統實現的本地儲存設備加密系統的加密金鑰,硬體安全模塊（HSM）的一個⽰例。
 
+Federated Identity (聯合身分) ：使用者在每個系統都有⾃⼰的帳號，透過聯盟的關係，使用盟主的帳號即可跨系統登入
+Integrated Identity (整合身分)：一個使用者只有一個帳號 AD
+Scripted Access (腳本存取) ：老系統，可寫程式幫忙登入
+
+ OIDC 和 OAuth 2.0 的組合最適合互聯網和社交媒體
+ SAML +X ACML更適合企業對企業或供應鏈集成。
+OAuth是一種授權協議，⽽不是⾝份驗證協議
+
+SAML安全：
+1. SAML 沒有安全模式，需要時依靠TLS 和數字簽名來確保安全
+2. TLS 提供消息機密性和完整性，可以防止竊聽。當與提供完整性和⾝份驗證的數字簽名配對時，偽造的斷⾔也可以被擊
+
+OpenID Connect 指定了一個 RESTful HTTP API，使用 JSON 作為數據格式。
+OIDC=OAuth 2.0 協議之上的一個簡單⾝份層，
+想要快速建立身份平台，選擇 OIDC ⽽不是 SAML，無需三思。與需要重量級
+XML 處理的 SAML 相比，實施基本的 OIDC 解決方案要簡單得多。
+ 有一個以 API 為中心的架構，有很多移動和單頁應用程序，使用 OIDC。它將保證更高效和可互操作的體驗。
+ 想要實施成熟的標準，已經存在很長時間的東⻄，然後選擇 SAML。它功能豐富，可以完成⼯作，⼗多年來一直是企業網絡的主要組成部分。
+ OIDC 基於 OAuth 2.0在安全性上，它包含了許多記錄在案的威脅模型和安全注意事項。
+加密 JSON 也比 XML 容易得多，這再次減少了實施錯誤的機會。
+
+
+RBAC 技術允許您按⾓⾊授予訪問權限。
+ABAC 技術讓您可以根據用戶特徵、對象特徵、操作類型等來確定訪問權限。
+```
