@@ -1,0 +1,219 @@
+ 主機IP固定之後再設定即可
+ ```php
+wget -q -O - https://updates.atomicorp.com/installers/atomic | sudo bash
+[Default: yes]
+[Default: yes]
+
+ # Agent
+ yum install ossec-hids-agent
+
+
+cd /var/ossec/bin/
+
+./ossec-configure
+```
+```php
+OSSEC Configuration utility v0.1
+
+1- What kind of installation do you want? (server, agent, local) [Default: server]: agent
+
+2- Setting up the configuration environment.
+
+3- Configuring the OSSEC HIDS.
+
+  3.1- Do you want e-mail notification? (y/n) [Default: y]: 
+   - What's your e-mail address? 
+   - What's your SMTP server ip/host? 
+
+  3.2- Do you want to run the integrity check daemon? (y/n) [y]: 
+
+  3.3- Do you want to run the rootkit detection engine? (y/n) [y]: 
+
+  3.4- Active response allows you to execute a specific 
+       command based on the events received. For example,
+       you can block an IP address or disable access for
+       a specific user.  
+       More information at:
+       http://www.ossec.net/en/manual.html#active-response
+       
+
+   - Do you want to enable active response? (y/n) [y]: 
+     - Active response enabled.
+   
+   - By default, we can enable the host-deny and the 
+     firewall-drop responses. The first one will add
+     a host to the /etc/hosts.deny and the second one
+     will block the host on iptables (if linux) or on
+     ipfilter (if Solaris, FreeBSD or NetBSD).
+   - They can be used to stop SSHD brute force scans, 
+     portscans and some other forms of attacks. You can 
+     also add them to block on snort events, for example.
+
+
+   - Do you want to enable the firewall-drop response? (y/n) [y]: 
+   - Do you want to add more IPs to the white list? (y/n)? [n]: 
+   3.5- Do you want to enable remote syslog (port 514 udp)? (y/n) [y]: 
+
+    -- /var/log/messages (syslog)
+    -- /var/log/secure (syslog)
+    -- /var/log/maillog (syslog)
+Configuration complete.
+```
+```php
+vim /var/ossec/etc/ossec.conf
+
+
+把預設的mv改名 ossec.conf.bak -> ossec-agent.conf
+預設是把ossec.conf 指到 ossec-agent.conf
+可以指向改到 ossec.conf.sample 
+或是 vim 新的 ossec.conf
+
+
+vim ossec.conf
+#加在最上行
+<ossec_config>
+第2行
+<client>
+  <server-ip>172.16.205.3</server-ip>
+</client>
+
+vim /etc/rc.d/rc.local
+
+加入這段
+/var/ossec/bin/ossec-client.sh restart
+```
+先到 Ossec Server
+```php
+OSSEC Server註冊Agent資訊
+連至安裝OSSEC的Server主機
+執行ossec的agent管理程式
+
+ /var/ossec/bin/manage_agents
+****************************************
+* OSSEC HIDS v2.8.3 Agent manager.     *
+* The following options are available: *
+****************************************
+   (A)dd an agent (A).
+   (E)xtract key for an agent (E).
+   (L)ist already added agents (L).
+   (R)emove an agent (R).
+   (Q)uit.
+Choose your action: A,E,L,R or Q: A
+
+- Adding a new agent (use '\q' to return to the main menu).
+  Please provide the following:
+   * A name for the new agent: 輸入主機名稱
+   * The IP Address of the new agent: 輸入主機ip
+   * An ID for the new agent[005]: 按enter
+Agent information:
+   ID:005
+   Name:aplog
+   IP Address:10.1.35.209
+
+Confirm adding it?(y/n): y
+Agent added.
+
+****************************************
+* OSSEC HIDS v2.8.3 Agent manager.     *
+* The following options are available: *
+****************************************
+   (A)dd an agent (A).
+   (E)xtract key for an agent (E).
+   (L)ist already added agents (L).
+   (R)emove an agent (R).
+   (Q)uit.
+Choose your action: A,E,L,R or Q: E
+
+Available agents: 
+   ID: 001, Name: core, IP: 10.1.34.9
+   ID: 002, Name: core02, IP: 10.1.34.10
+   ID: 003, Name: secure02, IP: 10.1.35.11
+   ID: 004, Name: secure, IP: 10.1.35.10
+   ID: 005, Name: aplog, IP: 10.1.35.209
+Provide the ID of the agent to extract the key (or '\q' to quit): 輸入剛剛新增的主機005
+
+Agent key information for '005' is: 
+MDA1IGFwbG9nIDEwLjEuMzUuMjA5IGRkMjNlOTYxNWQ3ZTBkZGM1YzdkMzBjNDUxYjg5ZmE3OTFkMTU4ZTIwYTQ5YmRlYzFmZDdiM2QxNGMwNGIzNTI=Agent key
+
+** Press ENTER to return to the main menu.
+
+****************************************
+* OSSEC HIDS v2.8.3 Agent manager.     *
+* The following options are available: *
+****************************************
+   (A)dd an agent (A).
+   (E)xtract key for an agent (E).
+   (L)ist already added agents (L).
+   (R)emove an agent (R).
+   (Q)uit.
+Choose your action: A,E,L,R or Q: Q
+
+** You must restart OSSEC for your changes to take effect.
+
+manage_agents: Exiting ..
+```
+
+```php
+回到 剛安裝 Server OSSEC client 匯入Key
+先複製好剛剛查的Agent key，回到剛剛安裝Agent的主機
+
+
+Agent key information for '03x' is: 
+MDM2IFjAyLjgxIGEzNjI4ODYwYzE4YTdiYWIyNDVjNTNlY2UzM2FlYjYwM2Q5MDWUwZGFlNTM=
+
+
+
+######[root@ossec-agent ossec-hids-2.8.1]# /user/local/ossec/bin/manage_agents  
+/var/ossec/bin/manage_agent
+
+****************************************
+* OSSEC HIDS v2.8 Agent manager.     *
+* The following options are available: *
+****************************************
+   (I)mport key from the server (I).
+   (Q)uit.
+Choose your action: I or Q:
+
+Choose your action: I or Q: I
+
+* Provide the Key generated by the server.
+* The best approach is to cut and paste it.
+*** OBS: Do not include spaces or new lines.
+
+Paste it here (or '\q' to quit): MDM2IFAtZG5YWIyNDVjNTNlY2UzM2FlYjYwM2Q5MiOTU0YWFjNDGFlNTM=
+
+Agent information:
+   ID:03x
+   Name:<hostname>
+   IP Address:172.**.***.****
+
+Confirm adding it?(y/n): y
+
+** Press ENTER to return to the main menu.
+```
+```php
+****************************************
+* OSSEC HIDS v3.7.0 Agent manager.     *
+* The following options are available: *
+****************************************
+   (I)mport key from the server (I).
+   (Q)uit.
+Choose your action: I or Q: q
+
+** You must restart OSSEC for your changes to take effect.
+
+manage_agents: Exiting.
+manage_agents: Exiting.
+
+
+/var/ossec/bin/ossec-control stop   ##停服務
+
+/var/ossec/bin/ossec-control start  ##啟服務
+/var/ossec/bin/ossec-control restart  ##重啟服務
+
+/var/ossec/bin/ossec-control status ##服務狀態
+
+/var/ossec/bin/ossec-client.sh restart
+```
+
+
