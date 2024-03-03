@@ -80,7 +80,28 @@ C.選擇明文（Chosen-Plaintext）。
 縱深防禦或深度防禦描述了通過應用多種機制構建的安全架構，以創建一系列屏障來防止、延遲或阻⽌對⼿的攻擊。
 目的是在安全控制失敗或漏洞被利用的情況下提供冗餘，這可能涵蓋系統生命週期期間的人員、程序、技術和物理安全等方⾯。
 ```
+```
++ DHCP discover 客戶端請求地址不知道服務端位置為用廣播發送請求，得知回應是服務端
++ DHCP offer 服務器收到discover報文後，尋找適合的IP位址相應期限跟配置(gw,DNS)給客戶端可以使用
++ DHCP request 客戶段收到offer選擇一個回應廣播request通告選擇的服務器
+- 客戶端成功獲取ip位置，當期限過去1/2會發個DHCP request延長若沒收到DHCP ACK在發廣播報文延長
 
++ DHCP ACK 服務端收到request後，根據request MAC來查找相應期限紀錄，有就則發ACK通知可以使用
++ DHCP NAK 服務端收到request後，發現沒有相應期限紀錄或其他原因無法正常分配，則發NAK通知用戶無發分配IP
++ DHCP release 當用戶不需使用分配IP就會發給服務端 release報文，不需分配並服務端會釋放期限
++ DHCP decline 客戶端收到服務端DHCP ACK通過衝突檢測或其他不能使用則發 decline通知服務端IP不可用
++ DHCP inform  客戶端要更詳細配置，則發inform向服務端請求在用DHCP ACK回應
+
+->> DHCP 餓死攻擊：發送大量請求申請IP位址，因無法辨識CHADDR字段合法性導致耗盡無法給正常主機分配
+## DHCP snooping 客戶端和服務端建立虛擬防火牆．對request CHADDR進行檢查
+
+->> 假冒DHCP服務端攻擊：無法區分哪個是DHCP服務端，分配錯誤IP參數導致無法訪問網路
+## DHCP snooping 所有交換默認端口都是非信任端口，收到非信任端口交換機都直接丟棄不轉發
+
+->> DHCP中間人攻擊：利用ARP機制機制應設關係學習戶項豹紋都要經過“中間人” 
+## DHCP snoopin的交換器會偵聽，服務端和客戶端收集用戶MAC,CHADDR的IP地址、期限存放在綁定表
+## 發現與綁定表不匹配就丟棄報文 
+```
 ```
 HUB 集線器：集線器是一種物理層設備，⼯作在OSI 實體層，讓連結的裝置在同一個網段⼯作。
 Repeater 轉發器：轉發器的用途是連接不同的網段，轉發是將訊號重打一次
@@ -185,3 +206,5 @@ STRIDE
 |4.|Information Disclosure|－資訊外洩威脅|保密|洩漏|
 |5.|Denial of Service|－不能連線，以⾄不能提供服務|可用|阻斷|
 |6. |Elevation of Privileges|因程式錯誤、設計缺陷、系統設定|授權|提權|
+
+
