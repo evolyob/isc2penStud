@@ -65,3 +65,19 @@ if has_ticket:
 else:
     print("plsBuyTicket")
 ```
+```py
+samp = 'ccsp sampras'
+translated = ' '
+
+i = len(samp) - 1  //len()計算有幾個字符
+while i >= 0:     // while循環, 檢查結果，當i大於0不斷循環直到等於0
+    translated = translated + samp[i]
+    i = i - 1    //執行到 false才會到下一行 print
+
+print(translated)
+
+
+
+
+
+
