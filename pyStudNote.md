@@ -111,17 +111,19 @@ for symbol in message:
             num = num + key
         elif mode == 'decrypt':
             num = num - key
-# handle the wrap-around if num is larger than the length of
-if num >= len(LETTERS):
-num = num - len(LETTERS)
- elif num < 0:
-num = num + len(LETTERS)
-# add encrypted/decrypted number's symbol at the end of translated
-translated = translated + LETTERS[num]
+        # handle the wrap-around if num is larger than the length of
+        # LETTERS or less than 0
+        if num >= len(LETTERS):
+            num = num - len(LETTERS)
+         elif num < 0:
+            num = num + len(LETTERS)
 
-else:
-# just add the symbol without encrypting/decrypting
-translated = translated + symbol
+        # add encrypted/decrypted number's symbol at the end of translated
+        translated = translated + LETTERS[num]
+
+    else:
+        # just add the symbol without encrypting/decrypting
+        translated = translated + symbol
 
 # print the encrypted/decrypted string to the screen
 print(translated)
