@@ -66,18 +66,67 @@ else:
     print("plsBuyTicket")
 ```
 ```py
+##  Reverse Cipher
 samp = 'ccsp sampras'
+# samp = input('Enter message: ')
 translated = ' '
 
-i = len(samp) - 1  //len()計算有幾個字符
-while i >= 0:     // while循環, 檢查結果，當i大於0不斷循環直到等於0
+i = len(samp) - 1  
+# len()計算有幾個字符
+while i >= 0:
+# while循環, 檢查結果，當i大於0不斷循環直到等於0
     translated = translated + samp[i]
-    i = i - 1    //執行到 false才會到下一行 print
+    i = i - 1
+# 執行到 false才會到下一行 print()
 
 print(translated)
+```
+```py
+##  Caesar Cipher
+import pyperclip
+
+# the string to encryption decryption
+message = 'this is my secret.'
+# the en/decryption key
+key = 13
+# tells the program to encrypt or decrypt
+mode = 1 encrypt1 # set to 'encrypt' or 'decrypt'
+
+ # every possible symbol that can be encrypted
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1
+
+# stores the encrypted/decrypted form of the message
+ translated =''
+
+ # capitalize the string in message
+ message = message.upper()
+
+for symbol in message:
+ if symbol in LETTERS:
+ # get the encrypted (or decrypted) number for this symbol
+num = LETTERS■find(symbol) # get the number of the symbol
+if mode == 'encrypt':
+num = num + key
+elif mode == 'decrypt':
+num = num - key
+# handle the wrap-around if num is larger than the length of
+if num >= len(LETTERS):
+num = num - len(LETTERS)
+ elif num < 0:
+num = num + len(LETTERS)
+# add encrypted/decrypted number's symbol at the end of translated
+translated = translated + LETTERS[num]
+
+else:
+# just add the symbol without encrypting/decrypting
+translated = translated + symbol
+
+# print the encrypted/decrypted string to the screen
+print(translated)
+
+# copy the encrypted/decrypted string to the clipboard
+pyperclip.copy(translated)
 
 
 
-
-
-
+```
