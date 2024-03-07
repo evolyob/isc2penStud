@@ -89,6 +89,7 @@ import pyperclip
 message = 'this is my secret.'
 # the en/decryption key
 key = 13
+
 # tells the program to encrypt or decrypt
 mode = 1 encrypt1 # set to 'encrypt' or 'decrypt'
 
@@ -101,14 +102,15 @@ LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1
  # capitalize the string in message
  message = message.upper()
 
+
 for symbol in message:
- if symbol in LETTERS:
- # get the encrypted (or decrypted) number for this symbol
-num = LETTERS■find(symbol) # get the number of the symbol
-if mode == 'encrypt':
-num = num + key
-elif mode == 'decrypt':
-num = num - key
+     if symbol in LETTERS:
+         # get the encrypted (or decrypted) number for this symbol
+        num = LETTERS.find(symbol) # get the number of the symbol
+        if mode == 'encrypt':
+            num = num + key
+        elif mode == 'decrypt':
+            num = num - key
 # handle the wrap-around if num is larger than the length of
 if num >= len(LETTERS):
 num = num - len(LETTERS)
