@@ -74,7 +74,7 @@ translated = ' '
 i = len(samp) - 1  
 # len()計算有幾個字符
 while i >= 0:
-# while循環, 檢查結果，當i大於0不斷循環直到等於0
+# while循環, 檢查結果true,false，當i大於0不斷循環直到等於0
     translated = translated + samp[i]
     i = i - 1
 # 執行到 false才會到下一行 print()
@@ -91,25 +91,28 @@ message = 'this is my secret.'
 key = 13
 
 # tells the program to encrypt or decrypt
-mode = 1 encrypt1 # set to 'encrypt' or 'decrypt'
+mode = 'encrypt' # set to 'encrypt' or 'decrypt'
 
- # every possible symbol that can be encrypted
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1
+# every possible symbol that can be encrypted
+#  加密程序的符號集，變量名是全大寫的約定
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 # stores the encrypted/decrypted form of the message
- translated =''
+translated =''
 
- # capitalize the string in message
- message = message.upper()
-
+# capitalize the string in message
+message = message.upper()
+## 把message都轉成大寫
 
 for symbol in message:
+# for是循環歷遍字符或列表， for 歷遍字符在 message裡面。
      if symbol in LETTERS:
+#如果symbol裡有在LETTERS裡面就為true
          # get the encrypted (or decrypted) number for this symbol
         num = LETTERS.find(symbol) # get the number of the symbol
         if mode == 'encrypt':
             num = num + key
-        elif mode == 'decrypt':
+        elif mode == 'decrypt': ## 並檢查此條件是否為 true
             num = num - key
         # handle the wrap-around if num is larger than the length of
         # LETTERS or less than 0
