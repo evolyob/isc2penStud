@@ -112,6 +112,7 @@ windows cmd
 tracert 檢測或查看連結當前主機經歷哪些路由節點
 nslookup 查詢DNS域名解析
 緩衝區溢出 緩衝區放過多數據造、溢出的數據會流到其他程式或系統覆蓋其他合法數據被執行
+數據和代碼分離原則、避免用戶數據當作代碼執行混淆之間的邊界
 
 PRC 服務遠端：即時補丁或關閉PRC服務
 
@@ -121,8 +122,7 @@ net user luke kiltigr29 /add
 net localgroup administrators luke /add
 #把luke賦予管理員權限
 
-
-
+arp -a #本地ARP緩存表
 
 
 
