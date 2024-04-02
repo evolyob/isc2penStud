@@ -125,8 +125,10 @@ net localgroup administrators luke /add
 arp -a #本地ARP緩存表
 
 
-
-
+XSS worm  繞過過濾HTML標籤，把原本的代碼壓縮成一行透過AJAX POST請求在列表添加自己的功能同時複製自身進行傳播
+方法：用戶之間發生交互行為，如果存在儲存型XXS則較容易發起XXS Worm攻擊，這些蠕蟲並不會干擾用戶正常使用非常隱蔽
+利用字符編碼 比如說輸出雙引號是變量內、
+繞過長度限制 location.hash JS的語法繞過長度限制
 
 
 
