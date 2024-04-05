@@ -130,7 +130,7 @@ XSS worm  繞過過濾HTML標籤，把原本的代碼壓縮成一行透過AJAX P
 利用字符編碼 比如說輸出雙引號是變量內、
 繞過長度限制 location.hash JS的語法繞過長度限制
 
-
+httpOnly
 
 ```
 
