@@ -24,3 +24,14 @@ baseurl = file:///<repo location> 代表本地系統的根
 yum -y install yum-utils
 yum-config-manager --add-repo=https://<url>
 ```
+```
+ 局域庫建立
+reposync --repo <syncRepoName> -p /<repoName>/
+
+find ./ -name *.rpm -exec mv {} . \;
+// rpm移動到當前目錄
+
+
+yum install createrepo
+createrepo -v  /<repoName>/
+```
