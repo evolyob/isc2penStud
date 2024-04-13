@@ -9,9 +9,21 @@ nmcil con add con-name ens2266 type ethernet ifname ens226
 
 nmcil con add con-name ens226 type ethernet ifname ens226 ipv4.addresses <ip>/24 ipv4.gateway <ip> ipv4.dns <ip> ipv4.metod manual
 nmcli con up ens226
+ip a show ens226  // 查看內容
 
 修改網卡配置文件， 加載緩存後再重啟
 nmcli con modify ens226
+nmcli con show
 
+netstat  用root操作
+netstat -tunlp
+查看最多連練數的ip
+netstat -ntu | grep :<port> | awk '{print $5}' | cut -d : -f1 | awk '{++ip[$1]} END {for(i in ip) print ip[i],"\t" ,1}' | sort -nr
+
+tcp
+netstat -nt | grep -e 127.0.0.1 -e 0.0.0.0 -e ::: -v | awk '/^tcp/ {++state[$NF]} END {for(i in state) print i, "\t" ,state[i]}'
+netstat
+
+pstree 父子進程的關西
 
 ```
