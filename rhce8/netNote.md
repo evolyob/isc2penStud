@@ -77,6 +77,31 @@ SNAT          all --  192.168.0.0/24 0.0.0.0/0 to:192.168.0.1 //storage to wan
 firewalld 更簡單配置防火牆(幫轉換iptable指令)
 firewalld-cmd --list-all
 
+增加服務
+firewalld-cmd --add-service=ftp
+firewalld-cmd --list-services
+移除服務
+firewalld-cmd --remove-service=ftp
+firewalld-cmd --list-services
+```
+```
+搭建web server
+yum install httpd
+echo firewall-test >> /var/www/html/index.html
+systemctl restart httpd
+systemctl enable httpd
+curl <ip>
+
+```
+```
+firewalld rich rule
+firewalld-cmd --add-rich-rule="rule family=ipv4 source address=2.2.2.0/24 port=8089 protocol=tcp reject"
+
+變成永久規則
+firewalld-cmd --runtime-to-permanent
+確認規則是否永久  
+firewalld-cmd --reload
+
 
 
 ```
