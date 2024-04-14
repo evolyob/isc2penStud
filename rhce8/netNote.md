@@ -58,13 +58,13 @@ DNAT         tcp   --  0.0.0.0/     0.0.0.0/0        tcp dpt:5000  192.168.0.1:5
 
 Chain INPUT(policy ACCEPT)
 target        port opt source       destination
-# 流量輸入
+# 流量輸入ㄍ(可設黑白名單)
 Chain OUTPUT(policy ACCEPT)
 target        port opt source       destination
-# 流量輸出
+# 流量輸出(不另設定)
 Chain FORWARD(policy ACCEPT)
 target        port opt source       destination
-# 流量轉發
+# 流量轉發 (不另設定)
 
 Chain POSTROUTING(policy ACCEPT)
 target        port opt source       destination
@@ -74,6 +74,8 @@ SNAT          all --  192.168.0.0/24 0.0.0.0/0 to:192.168.0.1 //storage to wan
 ```
 
 ```
+firewalld 更簡單配置防火牆(幫轉換iptable指令)
+firewalld-cmd --list-all
 
 
 
