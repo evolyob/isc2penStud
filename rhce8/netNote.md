@@ -27,7 +27,7 @@ ss -t -a
 ```
 
 ```
-
+iptable告訴net_filter規則交互或丟棄
 
 
 
