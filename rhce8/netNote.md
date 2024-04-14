@@ -25,28 +25,9 @@ netstat -nt | grep -e 127.0.0.1 -e 0.0.0.0 -e ::: -v | awk '/^tcp/ {++state[$NF]
 
 ss -t -a
 ```
+
 ```
-ssh 不檢查指紋直接過去
-ssh -o StrictHostKeyChecking=no <ip>
 
-sftp = /usr/libexec/openssh/sftp-server
-
-
-PermitRootLogin yes //允許使用root登入
-PubkeyAuthentication yes  //表示支持公鑰認證
-AuthorizedKeyFile .shh/authores_keys  //公要基於認證方式開始起後對放存放位址
-PasswordAuthentication yes //支持密碼認證
-
-/etc/ssh/sshd_config
-改22 -->32222
-
-setenforce 0
-systemctl stop firewalld
-syytemctl restart sshd
-
-ssh -p 32222 -o StrictHostKeyChecking=no <ip>
-
-PermitRootLogin no //不允許使用root登入
 
 
 
