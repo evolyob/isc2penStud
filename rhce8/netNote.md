@@ -28,9 +28,32 @@ ss -t -a
 
 ```
 iptable告訴net_filter規則交互或丟棄
+加22port 
+iptable -A  INPUT -s 192.168.0.0/24 -p tcp --dport 22 -j ACCEPT
 
+```
+```
+iptable -L -t nat
+Chain PREROUTING(policy ACCEPT)
+target        port opt source       destination
+DNAT         tcp   ---  0.0.0.0/    0.0.0.0/0        tcp dpt:5000  192.168.0.1:5000
+# 任何人訪問都會導向192.168.0.1:5000
 
+Chain INPUT(policy ACCEPT)
+target        port opt source       destination
+# 流量輸入
+Chain OUTPUT(policy ACCEPT)
+target        port opt source       destination
+# 流量輸出
+Chain FORWARD(policy ACCEPT)
+target        port opt source       destination
+# 流量轉發
 
+Chain POSTROUTING(policy ACCEPT)
+target        port opt source       destination
+MASQUERADE    all --  10.10.0.0/24   0.0.0.0/0                //ssh to wan
+SNAT          all --  192.168.0.0/24 0.0.0.0/0 to:192.168.0.1 //storage to wan
+# 能上網
 
 
 ```
