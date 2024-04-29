@@ -33,9 +33,26 @@ netstat -tunlp
 
 
 客戶端設定
+nmcli device status
+nmcil con add con-name dhcp ifname ens160 type ethernet
+nmcil con up dhcp
+ip route show
+nmcli con show
+cat /var/lib/dhcpd/dhcpd.leases //查看已取號的地址
+
+```
+```
+pstree 父子進程的關西
+kickstart
+自動安裝操作系統
+anaconda-ks.cfg
+yum -y install system-config-kickstart
+
+
+
+
+
 
 
 
 ```
-
-pstree 父子進程的關西
