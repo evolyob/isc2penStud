@@ -93,118 +93,115 @@ BYOD ***
 
 雲數據生命週期
 --數據分類
->>>監管合規
->>>業務功能
->>>功能單元
->>>基於項目
+>>>監管合規 regulatory compliance
+>>>業務功能 business function
+>>>功能單元 functional unit
+>>>基於項目 by project
 
 數據分級
->>>敏感性
->>>司法管轄權
->>>關鍵性
+>>>敏感性  sensitivity
+>>>司法管轄權 jurisdiction
+>>>關鍵性 criticality
 
 --分配數據標籤
 >>>
 >>>
 
 數據識別方法
->>>基於標籤識別
->>>基於元數據的識別
->>>基於內容的識別
->>>數據分析
--->數據挖掘
--->實時分析
--->敏捷商業智能
+>>>基於標籤識別label based discovery
+>>>基於元數據的識別 metadata-based discovery
+>>>基於內容的識別 content based discovery pattern-matching
+
+>>>數據分析 
+-->數據挖掘 datamining
+-->實時分析 real-time analytics
+-->敏捷商業智能 agile business intelligence
 
 ```
 司法管轄權要求
 ```
 
---美國
---歐洲
+--美國 HIPAA, GLBA, PCI
+--歐洲GDPR
 --亞洲
 --中南美
 --澳洲
 
-數據權限管理
---知識產權保護 p67
->>>
->>>
->>>
---
->>>
->>>
---
---
->>>
->>>
---
---
+數據權限管理DRM
+--知識產權保護 
+>>>著作權copyright
+-->合理使用 fair use
+-->學術合理使用 academic fair use
+-->評論 critique
+-->新聞報導 news reporting
+-->學術研究 scholarly research
+-->諷刺文學 satire
+-->圖書館保存 library preservation
+-->個人備份 personal backup
+-->身殘人士版本 pysical disabilities
 
 
-```
+>>>商標 trademark USPTO
+-->
+>>>專利 patent
+-->
 
-```
-
->>>
---
->>>
->>>
---
---
->>>
->>>
---
---
-
+>>>商業秘密 trade secret
 
 ```
-
 ```
+數字版權管理DRM工具特徵
+--基本參考檢查 rudimentary reference chk
+--在線參考檢查 online reference chk
+--本地代理檢查 local agent chk
+>>>許可介質保持驗證  presence of licensed media
+>>>基於持續支持的許可 support based licensing
 
->>>
---
->>>
->>>
---
---
->>>
->>>
---
---
+-->複製限制 replication restrictions DRM
+-->司法官轄權衝突 jusisadictional confilicts
+-->代理/企業衝突 agent/enterprise confilicts
 
-
+-->身份和訪問管理 IAM ACL DRM IAM
+-->API衝突 API conflicts
+-->持久保護 persistent protection DRM
+-->動態策略控制 dynamic policy control DRM ACL
+-->自動失效 automatic expiration DRM
+-->持續審計 Continuous auditing DRM
+-->複製限制 replocation restrictions
+-->遠程權限撤銷 remote rights revocation DRM
 ```
-
+數據控制
 ```
+retention disposal
+數據保留 data retention
+>>>保留期 retention periods
+>>>適用法律法規 applocable regulation
+>>>保留格式retention formats encryption engine
+>>>數據分級 data classification creator,owner,curator,user
+>>>歸檔和檢索程序 archiving, retrieval procedures BC/DR
+>>>持續監測維護和執行 monitoring,maintenance,enforcement
 
->>>
---
->>>
->>>
---
---
->>>
->>>
---
---
-
-
-```
-
-```
-
->>>
---
->>>
->>>
---
---
->>>
->>>
---
+數據審計 review data audit
+--audit perid audit scope()()
 --
 
+
+>>>日誌審查和分析通常不是優先工作
+>>>日誌審查是索然無味且不斷重覆
+>>>日誌審查同時需要新手和富有經驗的人員
+>>>審查員需要對營運具有一定理解
+
+數據銷毀和廢棄
+--介質和硬件的物理銷毀技術 physical destruction
+>>>消磁 degaussing
+>>>複寫 overwriting
+>>>加密擦除 crypto shredding
+
+數據廢棄策略
+-->
+-->
+-->
+data remanence
 
 ```
 
