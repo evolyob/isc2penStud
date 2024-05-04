@@ -162,49 +162,79 @@ BYOD ***
 -->個人備份 personal backup  合法購買著作許可的個人、如果元件失敗就可以使用副本 包括計算機程序
 -->身殘人士版本 pysical disabilities 專製作身殘人士副本是合法情形
 
+>>>商標 trademark 特定文字和圖形、保護在市場中建立估價和名聲(公眾認知)
+-->商表有效期限可永久保持、前提所有者一直使用於商業目的並且所有者向法院提侵權訴訟
 
->>>商標 trademark USPTO
--->
->>>專利 patent
--->
+>>>專利 patent 保護知識產權的法律機制、支持發明、流程、素材、裝飾和植物生命各種形態
+-->取的專利生產、銷售、進口的獨佔權力，申請起算二十年
+-->特定名義營銷的藥品是獨家授予的專利而是FDA發佈多個短期授權、多個公司聯合持有
 
->>>商業秘密 trade secret
-
+>>>商業秘密 trade secret 民事訴訟、不授予排他性、所有者保持從事商業活動效期永久保持．
+-->涉及多方面知識產權：流程、公式、商業方法
 ```
 ```
 數字版權管理DRM工具特徵
 --基本參考檢查 rudimentary reference chk
+-->內容本身自動檢查使用副本所有權合法性、需透過購買授權副本獲得特定信息(單詞或短語)
 --在線參考檢查 online reference chk
+-->輸入產品密鑰時檢查合法性
 --本地代理檢查 local agent chk
+-->利用工作檢查用戶許可件查受保戶內容，確定不是盜版
+
 >>>許可介質保持驗證  presence of licensed media
+-->同時使用內容和許可介質、用允許基於這種對應關西使用內容
 >>>基於持續支持的許可 support based licensing
+-->許可軟件可能允許需要隨時訪問更新和補丁、阻止未經許可版本獲得這類的支持
 
--->複製限制 replication restrictions DRM
+-->複製限制 replication restrictions 
+->>DRM涉及防止未授權，但雲平台需創建關閉複製因此可能會干擾自動資源分配
 -->司法官轄權衝突 jusisadictional confilicts
--->代理/企業衝突 agent/enterprise confilicts
+->>模糊不清界線帶來大量未知不可控因素，導致知識產權限制問題
 
--->身份和訪問管理 IAM ACL DRM IAM
+-->代理/企業衝突 agent/enterprise confilicts
+->>安裝本地代理DRM方案並不總在雲計算環境正常工作，比如BYOD使用各種平台但在本地代理可能無法
+-->身份和訪問管理 IAM＆DRM的映射
+->>因訪問控制通常涉及特定內容的ACL，DRM會跟企業雲IAM流程衝突無法正常工作
 -->API衝突 API conflicts
--->持久保護 persistent protection DRM
--->動態策略控制 dynamic policy control DRM ACL
--->自動失效 automatic expiration DRM
--->持續審計 Continuous auditing DRM
+->>DRM需嵌入內容，所以不同應用程序，可能無法提供相同性能水平
+
+DRM應提供的功能
+-->持久保護 persistent protection
+->>DRM一直保護內容的合法性，保護不應該生產環境的簡單操作而失效
+-->動態策略控制 dynamic policy control
+->>DRM允許內容創作者和數據所有者修改ACL和權限，以保護受控的數據
+-->自動失效 automatic expiration
+->>當法律保護停止DRM應該停止保護，受保護內容訪問性和權限也應該同時失效
+-->持續審計 Continuous auditing
+->>DRM應該允許對內容使用過程和訪問歷史全面持續監測
 -->複製限制 replocation restrictions
--->遠程權限撤銷 remote rights revocation DRM
+->>使用DRM目的是限制非法內容複製，錄頻、打印、複製等等
+-->遠程權限撤銷 remote rights revocation
+->>特定產權所有者任何時候都有權撤銷這些權利，這是用在訴訟或侵權結果
+
 ```
 數據控制
 ```
 retention disposal
 數據保留 data retention
+**在歸檔階段發生的活動**
 >>>保留期 retention periods
+-->保留期限常用年限根據法規也可由合同要求或修改
 >>>適用法律法規 applocable regulation
+-->法規、合同授權考量保留政策給高層管理層決定解決衝突機制
 >>>保留格式retention formats encryption engine
+-->實際歸檔、介質儲存類型和處理特定數據的規範標準、什麼類型需要加密、密鑰儲存回收等引用適用法律法規
 >>>數據分級 data classification creator,owner,curator,user
+-->總體數據分級策略指導數據的角色、何時如何、個分級處理的安全程序和控制的儲存索引具體說明
 >>>歸檔和檢索程序 archiving, retrieval procedures BC/DR
+-->儲存數據可以糾正錯誤、實現商業智能為目的數據挖掘分析、被檢索具成本效益投入生產才是最有用
+-->流程應詳細描述發送到介質及恢復數據的過程，頻繁更新編輯並可獨立保存
 >>>持續監測維護和執行 monitoring,maintenance,enforcement
+-->修訂策略頻率由誰負責不遵守後鬼、組織哪個實體負責執行
 
-數據審計 review data audit
---audit perid audit scope()()
+數據審計 定期審查review清點檢查擁有數據使用狀態情況、數據審計data audit是完成這些工作有力工具
+->>數據審計策略應包含
+--審計週期audit perid、審計範圍audit scope、審計責任(內外部)、審計程序和流程、適用法規、持續監測維護執行
 --
 
 
