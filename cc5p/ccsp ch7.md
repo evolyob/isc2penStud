@@ -105,33 +105,36 @@ ASMP 應用安全管理流程
 
 ```
 
---應用編程接口
---REST
--->URL XML
--->CVS,JSOM,XML
+--應用編程接口 RESTful
+--REST 表述性狀態轉移:能擴展Web應用能力的軟體架構特性包括；
+-->量級輕，使用簡單URL、不依賴XML，可擴展、可多種格式輸出(CVS,JSOM)、高效(消息比XML更小)
+-->
 REST工作場景
--->
+-->帶寬受限、使用無狀態操作、需要緩存
 
---SOAP
---> XML
->>>
+--SOAP simple object access protocol 簡單對象訪問協議、可能在SMTP,FTP,HTTP上工作
+>>>基於標準、依賴xml、高度不容錯、較慢、內置錯誤處理。
 SOAP工作場景
->>>
---租戶隔離(tenancy separation)
--->多租戶
--->
---密碼學
--->靜態數據加密 at rest
--->動態數據加密 in transit
--->使用數據加密 in use
--->傳輸層加密 crypto offloading
--->安全套接字層 SSL
--->虛擬專用網路 VPN VPN
--->全實例加密 whole instance encryption/whole disk encryption,WDE
--->卷加密
+>>>異步處理、有格式規範、有狀態操作
 
-沙箱技術
->>>
+--租戶隔離(tenancy separation)
+-->多租戶在同主機託管多個雲租戶共享資源，都在各自隔離環境維護
+-->避免儲存錯誤配置可訪問其他租戶個人訊息，可能面零監管和法律的懲罰和財物損失
+
+--密碼學
+-->靜態數據加密 at rest 加密是防止未授權查看方法，避免可能法律原因沒收被窺視。
+-->動態數據加密 in transit 傳輸數據加密也須使用密鑰(SSL證書)
+-->使用數據加密 in use 同態加密(未廣泛用、緩慢)，數據交易的安全級數
+-->傳輸層加密TLS 確保應用在通信隱私的協議、加密卸載crypto offloading
+-->安全套接字層 SSL 2015已棄用
+-->虛擬專用網路 IPSec VPN 端到端加密，
+-->全實例加密 whole instance encryption/whole disk encryption,WDE 全盤加密，
+>>>所有靜止狀態數據加密，>快照也能被獲取和訪問
+
+-->卷volume加密 某個分區加密，只對具有價值加密
+
+沙箱技術  一個受保護區域做尚未測試代碼和不可信代碼或更好確定應用是否按照預期工作
+>>>不允許和應用或進程對內部進行訪問
 >>>
 應用虛擬化
 --Linux  windows
