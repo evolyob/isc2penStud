@@ -16,12 +16,13 @@ ch. 10 法律與合規
 ->>>服務水平service SLA、隱私水平Privacy PLA、營運水平Operation OLA
 ->>>支付卡行業數據安全標準PCI DSS
 
--->侵權法Tort尼補他人過錯導致傷害的權利義務與受害者補償、對疏忽和危險行為起到威懾
+-->侵權法Tort彌補他人過錯導致傷害的權利義務與受害者補償、對疏忽和危險行為起到威懾
 ->>>習慣法common基於文化道德和立法座椅有判決和決定構成判例作為引用傾向本方
 
---行政法  IRS, IRS, IRS,
---知識產權
--->著作權copyright, work right, work for hire
+--行政法  IRS制定行政法法規,強制自己與IRS調查官一起進行調查和執法,根據律師詢問和法官裁決決定結果
+
+--知識產權 intellectual property無形資產想法跟創意
+-->著作權copyright創意形式表達進行保護, work right, work for hire
 
 -->商標trademark
 -->專利 patent
